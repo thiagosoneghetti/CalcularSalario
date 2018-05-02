@@ -15,10 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton radioButtonEscolhido;
     private Button botaoCalc;
     private TextView resultado;
-    private EditText salario;
-    private RadioButton porc40;
-    private RadioButton porc45;
-    private RadioButton porc50;
+    private EditText salario_info;
 
 
     @Override
@@ -29,36 +26,27 @@ public class MainActivity extends AppCompatActivity {
         radioGroup = (RadioGroup) findViewById(R.id.radioGroupId);
         botaoCalc = (Button) findViewById(R.id.botaoCalcId);
         resultado = (TextView) findViewById(R.id.idResultado);
-        salario = (EditText) findViewById(R.id.id_salario);
-        porc40 = (RadioButton) findViewById(R.id.id_40);
-        porc45 = (RadioButton) findViewById(R.id.id_45);
-        porc50 = (RadioButton) findViewById(R.id.id_50);
-
-        final String txtPorc40 = porc40.getText().toString();
-        final int v_Porc40  = Integer.parseInt(txtPorc40);
-
-        String txtPorc45 = porc40.getText().toString();
-        final int v_Porc45  = Integer.parseInt(txtPorc45);
-
-        String txtPorc50 = porc40.getText().toString();
-        final int v_Porc50  = Integer.parseInt(txtPorc50);
-
-        String txtSalario = salario.getText().toString();
-        final double v_Salario  = Double.parseDouble(txtSalario);
-        
+        salario_info = (EditText) findViewById(R.id.id_salario);
 
         botaoCalc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int idRadioButtonEscolhido = radioGroup.getCheckedRadioButtonId();
+                String txtSalario = salario_info.getText().toString();
+                double val_Salario = Double.parseDouble(txtSalario);
+                double cal_Salario = 0;
 
-                String teste = radioButtonEscolhido.getText().toString();
+               int idRadioButtonEscolhido = radioGroup.getCheckedRadioButtonId();
 
+               if (R.id.id_40 == idRadioButtonEscolhido){
+                   cal_Salario = val_Salario +(val_Salario * 0.40);
+               }
+               if (R.id.id_45 == idRadioButtonEscolhido) {
+                   cal_Salario = val_Salario +(val_Salario * 0.45);               }
+               if (R.id.id_50 == idRadioButtonEscolhido){
+                   cal_Salario = val_Salario +(val_Salario * 0.50);
+               }
 
-                if ( == txtPorc40){
-                    resultado.setText("OK");
-                }
-
+               resultado.setText("Salário ajustado para: R$"+cal_Salario);
             }
         });
 

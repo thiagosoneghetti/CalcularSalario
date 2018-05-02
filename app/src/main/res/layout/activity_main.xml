@@ -12,7 +12,8 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Digite seu salário (R$)" />
+        android:text="Digite seu salário (R$)"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/id_salario"
@@ -25,7 +26,8 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Qual será o percentual?" />
+        android:text="Qual será o percentual?"
+        android:textSize="18sp" />
 
     <RadioGroup
         android:id="@+id/radioGroupId"
@@ -58,10 +60,16 @@
         android:id="@+id/botaoCalcId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:text="Mostrar Novo Salário" />
 
     <TextView
         android:id="@+id/idResultado"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:paddingLeft="50dp"
+        android:textAllCaps="false"
+        android:textColor="@android:color/background_dark"
+        android:textSize="100sp" />
 </LinearLayout>
